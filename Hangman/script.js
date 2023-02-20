@@ -1,5 +1,5 @@
 /*----- Constants -----*/
-const wordDB = ["paperhands", "shilling", "gm", "ded", "dogecoin", "down bad", "to the moon", "wagmi", "kek", "vitalik buterin", "ethereum", "solana", "binance", "kucoin", "pepe", "twitter", "bored ape yacht club", "opensea", "bitcoin", "degen", "blockchain", "dao", "dyor", "defi", "fud", "gas war", "hodl", "ledger", "satoshi nakamoto", "whale", "dolphin", "airdrop", "bag holder", "wen lambo", "memecoin", "pump and dump", "scalping", "seed phrase", "metamask", "phantom", "floor price", "delist", "pamp", "sweep", "ngmi", "ape", "nft", "cryptopunks", "moonbirds", "azuki", "doodles", "mutant ape yacht club", "otherside", "lfg", "rekt", "alpha", "mint", "ama", "raid", "town hall", "announcement", "flex", "collaboration", "poll", "meta", "cope", "hopium", "copium", "normie"];
+const wordDB = ["paperhands", "shilling", "gm", "ded", "dogecoin", "down bad", "to the moon", "wagmi", "kek", "vitalik buterin", "ethereum", "solana", "binance", "kucoin", "pepe", "twitter", "bored ape yacht club", "opensea", "bitcoin", "degen", "blockchain", "dao", "dyor", "defi", "fud", "gas war", "hodl", "ledger", "satoshi nakamoto", "whale", "dolphin", "airdrop", "bag holder", "wen lambo", "memecoin", "pump and dump", "scalping", "seed phrase", "metamask", "phantom", "floor price", "delist", "pamp", "sweep", "ngmi", "ape", "nft", "cryptopunks", "moonbirds", "azuki", "doodles", "mutant ape yacht club", "otherside", "lfg", "rekt", "alpha", "mint", "ama", "raid", "town hall", "announcement", "flex", "collaboration", "meta", "cope", "hopium", "copium", "normie", "fomo", "halving", "market cap", "private key", "bagholder", "diamond hands", "flippening", "rug pull"];
 const MAX_TRIES = 8;
 const wordsNeededToWin = 10;
 
@@ -12,8 +12,6 @@ const game = {
     wordCompletionTimer: 0,
     checkWinTimer: 0,
 };
-// let wordCompletionTimer;
-// let checkWinTimer;
 
 /*----- Cached Elements -----*/
 const startScreen = document.getElementById("startScreen");
@@ -28,10 +26,6 @@ const gameOverWord = document.getElementById("gameOverWord");
 function init() {
     resetVariables();
     reloadScreen();
-    // clearClasses();
-    wordDBRandomiser();
-    wordPicker();
-    maskWordState();
     renderAll();
 };
 init ();
@@ -206,6 +200,9 @@ function resetVariables () {
     game.wordsGuessed = 0;
     gameOverWord.innerHTML = "";
     clearClasses();
+    wordDBRandomiser();
+    wordPicker();
+    maskWordState();
 };
 
 function showGameOverWord () {
