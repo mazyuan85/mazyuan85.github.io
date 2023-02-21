@@ -74,11 +74,11 @@ button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: larger;
     font-weight: bold;
-    margin: 4px;
+    margin: 2px;
     cursor:pointer;
     box-sizing: border-box;
     border: 1px black;
-    width: 25px;
+    width: 22px;
     border-style: dotted;
 }
 
