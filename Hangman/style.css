@@ -60,6 +60,8 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .gameWord {
@@ -74,11 +76,11 @@ button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: larger;
     font-weight: bold;
-    margin: 2px;
+    margin: 2.5px;
     cursor:pointer;
     box-sizing: border-box;
     border: 1px black;
-    width: 22px;
+    width: 24px;
     border-style: dotted;
 }
 
