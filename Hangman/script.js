@@ -156,13 +156,12 @@ function gameOver(gameWon) {
     if (gameWon) {
         gameOverHeader.innerHTML = "<h1>You Win!</h1>";
         gameOverImage.setAttribute("src", "assets/images/pepewin.gif");
-        endGame();
     } else {
         gameOverHeader.innerHTML = "<h1>You Lose!</h1>";
         gameOverImage.setAttribute("src", "assets/images/pepelose.gif");
-        showGameOverWord();
-        endGame();
     };
+    showGameOverWord();
+    endScreen();
 };
 
 // Auxiliary Transition Functions
@@ -173,13 +172,13 @@ function reloadScreen() {
 
  };
 
-function startGame() {
+function startingScreen() {
     startScreen.style.display = "none";
     gameScreen.style.display = "block";
     gameOverScreen.style.display = "none";
 };
 
-function endGame() {
+function endScreen() {
     startScreen.style.display = "none";
     gameScreen.style.display = "none";
     gameOverScreen.style.display = "block";
@@ -206,8 +205,12 @@ function resetVariables () {
 };
 
 function showGameOverWord () {
-    gameOverWord.innerHTML = `<h3>The word was: ${wordChosen}</h3>`;
+    if (game.gameWon === true) {
+        gameOverWord.innerHTML = `<h3>feels good man</h3>`;
+    } else {
+        gameOverWord.innerHTML = `<h3>The word was: ${wordChosen}</h3>`;
+    }
 };
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", startingScreen);
 restartButton.addEventListener("click", init);
