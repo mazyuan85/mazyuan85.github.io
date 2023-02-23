@@ -22,8 +22,7 @@ const restartButton = document.getElementById("restartButton");
 const alphabetButtons = document.querySelectorAll(".alphabets");
 const gameOverWord = document.getElementById("gameOverWord");
 const gameOverHeader = document.getElementById("gameOverHeader");
-const gameOverImage = document.getElementById("gameOverImage");  
-// const playerContainer = document.querySelector("iframe");
+const gameOverImage = document.getElementById("gameOverImage");
 
 // Game Start
 function init() {
