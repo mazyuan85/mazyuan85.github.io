@@ -49,7 +49,7 @@ button {
     align-items: center;
     text-align: center;
     line-height: 2em;
-    max-width: 320px;
+    max-width: 350px;
 }
 
 .gameOverScreen {
@@ -59,7 +59,7 @@ button {
     align-items: center;
     text-align: center;
     line-height: 3em;
-    max-width: 320px;
+    max-width: 350px;
 }
 
 .alphabetsRow {
@@ -105,6 +105,26 @@ button {
 #gameOverImage {
     max-width: 250px;
     max-height: 250px;
-    height:auto;
-    width: auto;
+    margin: auto;
 }
+
+/* #player {
+    max-width: 320px;
+    max-height: 400px;
+    
+} */
+
+.video-container {
+    position: relative;
+    width: 350px;
+    height: 385px;
+}
+  
+#player {
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+  

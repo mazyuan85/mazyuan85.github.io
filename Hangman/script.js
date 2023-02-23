@@ -1,5 +1,5 @@
 /*----- Constants -----*/
-const wordDB = ["paperhands", "shilling", "gm", "ded", "dogecoin", "down bad", "to the moon", "wagmi", "kek", "vitalik buterin", "ethereum", "solana", "binance", "kucoin", "pepe", "twitter", "bored ape yacht club", "opensea", "bitcoin", "degen", "blockchain", "dao", "dyor", "defi", "fud", "gas war", "hodl", "ledger", "satoshi nakamoto", "whale", "dolphin", "airdrop", "bag holder", "wen lambo", "memecoin", "pump and dump", "scalping", "seed phrase", "metamask", "phantom", "floor price", "delist", "pamp", "sweep", "ngmi", "ape", "nft", "cryptopunks", "moonbirds", "azuki", "doodles", "mutant ape yacht club", "otherside", "lfg", "rekt", "alpha", "mint", "ama", "raid", "town hall", "announcement", "flex", "collaboration", "meta", "cope", "hopium", "copium", "normie", "fomo", "halving", "market cap", "private key", "bagholder", "diamond hands", "flippening", "rug pull", "shiba inu"];
+const wordDB = ["paperhands", "shilling", "gm", "ded", "dogecoin", "down bad", "to the moon", "wagmi", "kek", "vitalik buterin", "ethereum", "solana", "binance", "kucoin", "pepe", "twitter", "bored ape yacht club", "opensea", "bitcoin", "degen", "blockchain", "dao", "dyor", "defi", "fud", "gas war", "hodl", "ledger", "satoshi nakamoto", "whale", "dolphin", "airdrop", "bag holder", "wen lambo", "memecoin", "pump and dump", "scalping", "seed phrase", "metamask", "phantom", "floor price", "delist", "pamp", "sweep", "ngmi", "ape into", "non-fungible token", "cryptopunks", "moonbirds", "azuki", "doodles", "mutant ape yacht club", "otherside", "lfg", "get rekt", "alpha", "mint", "ask me anything", "raid", "town hall", "announcement", "flex", "collaboration", "meta", "cope", "hopium", "copium", "normie", "fomo", "halving", "market cap", "private key", "bagholder", "diamond hands", "flippening", "rug pull", "shiba inu"];
 const MAX_TRIES = 8;
 const wordsNeededToWin = 10;
 
@@ -21,6 +21,9 @@ const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
 const alphabetButtons = document.querySelectorAll(".alphabets");
 const gameOverWord = document.getElementById("gameOverWord");
+const gameOverHeader = document.getElementById("gameOverHeader");
+const gameOverImage = document.getElementById("gameOverImage");  
+// const playerContainer = document.querySelector("iframe");
 
 // Game Start
 function init() {
@@ -151,8 +154,6 @@ function checkWin() {
 };
 
 function gameOver(gameWon) {
-    const gameOverHeader = document.getElementById("gameOverHeader");
-    const gameOverImage = document.getElementById("gameOverImage");  
     if (gameWon) {
         gameOverHeader.innerHTML = "<h1>You Win!</h1>";
         gameOverImage.setAttribute("src", "assets/images/pepewin.gif");
@@ -169,13 +170,14 @@ function reloadScreen() {
     startScreen.style.display = "block";
     gameScreen.style.display = "none";
     gameOverScreen.style.display = "none";
-
+    gameOverImage.style.display = "block";
  };
 
 function startingScreen() {
     startScreen.style.display = "none";
     gameScreen.style.display = "block";
     gameOverScreen.style.display = "none";
+    renderAll();
 };
 
 function endScreen() {
@@ -213,4 +215,40 @@ function showGameOverWord () {
 };
 
 startButton.addEventListener("click", startingScreen);
-restartButton.addEventListener("click", init);
+restartButton.addEventListener("click", restart);
+
+// Easter Egg
+let player;
+const tag = document.createElement("script");
+const videoContainer = document.getElementById("video-container");
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+        videoId: "vJMP7RBsoms",
+    });
+};
+
+function restart() {
+    player.stopVideo();
+    document.querySelector("iframe").style.display = "none";
+    videoContainer.style.display = "none";
+    init();
+};
+
+function easterEggScreen() {
+    if (game.gameWon) {
+        document.querySelector("iframe").style.display = "block";
+        videoContainer.style.display = "block";
+        gameOverImage.style.display = "none";
+    };
+};
+
+function easterEggStart() {
+    videoContainer.style.display = "none";
+};
+
+gameOverImage.addEventListener("click", easterEggScreen);
+setTimeout(easterEggStart, 1500);
