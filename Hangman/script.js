@@ -231,7 +231,9 @@ function onYouTubeIframeAPIReady() {
 };
 
 function restart() {
+    if (typeof player !== "undefined") {
     player.stopVideo();
+    };
     document.querySelector("iframe").style.display = "none";
     videoContainer.style.display = "none";
     init();
